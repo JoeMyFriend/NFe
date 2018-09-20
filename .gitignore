@@ -22,9 +22,11 @@
 hs_err_pid*
 /build/
 
-nbproject/private/
+nbproject/
 build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+nbproject/project.properties
+*.properties
