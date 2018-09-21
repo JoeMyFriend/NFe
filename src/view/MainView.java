@@ -41,6 +41,7 @@ public class MainView extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Emissor de Nota Fiscal");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtro de Pesquisa"));
 
@@ -152,6 +153,7 @@ public class MainView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
