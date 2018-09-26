@@ -5,10 +5,8 @@
  */
 package model.dao;
 
-import connection.ConnectionFactory;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import model.bean.Emitente;
+import static nfe.NFe.em;
 
 /**
  *
@@ -16,7 +14,8 @@ import model.bean.Emitente;
  */
 public class EmitenteDAO {
     
-    EntityManager em = new ConnectionFactory().getConnection();
+    // Joe - Utilizei a classe NFe para centralizar o EntityManager
+    //EntityManager em = new ConnectionFactory().getConnection();
     
     public Emitente save(Emitente emitente){
         try {
