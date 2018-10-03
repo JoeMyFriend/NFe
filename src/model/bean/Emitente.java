@@ -24,7 +24,7 @@ public class Emitente {
     private String razaoSocial;
     private String nomeFantasia;
     private String CNPJ;
-    private String inscEstadual;
+    private String inscricaoEstadual;
     private Integer regimeTributario;
     private String logradouro;
     private Integer numero;
@@ -64,12 +64,12 @@ public class Emitente {
         this.CNPJ = CNPJ;
     }
 
-    public String getInscEstadual() {
-        return inscEstadual;
+    public String getInscricaoEstadual() {
+        return inscricaoEstadual;
     }
 
-    public void setInscEstadual(String inscEstadual) {
-        this.inscEstadual = inscEstadual;
+    public void setInscricaoEstadual(String inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
     }
 
     public Integer getRegimeTributario() {
