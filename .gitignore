@@ -30,3 +30,4 @@ nbdist/
 .nb-gradle/
 nbproject/project.properties
 *.properties
+*.sqlite
