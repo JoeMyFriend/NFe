@@ -30,7 +30,7 @@ public class EmitenteDAO {
         } catch (Exception e) {
             em.getTransaction().rollback();
         } finally {
-            //em.close();
+            em.close();
         }
         return emitente;
     }

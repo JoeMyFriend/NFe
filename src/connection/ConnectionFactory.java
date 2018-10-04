@@ -16,13 +16,8 @@ import javax.persistence.Persistence;
 public class ConnectionFactory {
     
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("NFePU");
-    private static EntityManagerFactory emfBootstrap = Persistence.createEntityManagerFactory("bootstrapPU");
     
     public EntityManager getConnection(){
         return emf.createEntityManager();
-    }
-    
-    public EntityManager getConnectionBootstrap(){
-        return emfBootstrap.createEntityManager();
     }
 }
