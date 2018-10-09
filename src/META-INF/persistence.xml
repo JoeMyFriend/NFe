@@ -19,4 +19,23 @@
       <property name="hibernate.format_sql" value="true"/>
     </properties>
   </persistence-unit>
+  
+      <persistence-unit name="bootstrapPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>model.bootstrap.bean.IbptBs</class>
+        <class>model.bootstrap.bean.NcmBs</class>
+        <class>model.bootstrap.bean.UnidadeComercialBs</class>
+        <class>model.bean.endereco.Endereco</class>
+        <class>model.bean.endereco.Cidade</class>
+        <class>model.bean.endereco.Bairro</class>
+        <class>model.bean.endereco.Estado</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:bootstrap.sqlite"/>
+            <!-- Configurações específicas do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
 </persistence>
