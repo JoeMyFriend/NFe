@@ -54,6 +54,7 @@ public class EmitenteView extends javax.swing.JInternalFrame {
         String logradouro = txtLogradouro.getText();
         Integer numero = Integer.parseInt(txtNumero.getText());
         String bairro = txtBairro.getText();
+        Integer municipio = Integer.parseInt(txtCodigoMunicipio.getText());
         
         emitente = new Emitente();
         emitente.setNomeFantasia(nome);
@@ -62,6 +63,7 @@ public class EmitenteView extends javax.swing.JInternalFrame {
         emitente.setLogradouro(logradouro);
         emitente.setNumero(numero);
         emitente.setBairro(bairro);
+        emitente.setMunicipio(municipio);
         
         emitente = emitenteDAO.save(emitente);
         id = emitente.getId();
