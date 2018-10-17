@@ -5,6 +5,7 @@
  */
 package model.jtable;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.bean.Emitente;
@@ -14,7 +15,7 @@ import model.bean.Emitente;
  * @author Joe
  */
 public class EmitenteJTableModel extends AbstractTableModel {
-    private List<Emitente> dados;
+    private List<Emitente> dados = new ArrayList<>();
     private String[] colunas = {"CNPJ", "Inscrição Estadual", "Razão Social"};
 
     @Override
