@@ -14,10 +14,9 @@ import javax.persistence.Id;
  *
  * @author Joe
  */
-
 @Entity
 public class Emitente {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -30,7 +29,7 @@ public class Emitente {
     private Integer numero;
     private String bairro;
     private Integer UF;
-    private Integer municipio; 
+    private Integer municipio;
 
     public Integer getId() {
         return id;
@@ -119,6 +118,5 @@ public class Emitente {
     public void setMunicipio(Integer municipio) {
         this.municipio = municipio;
     }
-    
-    
+
 }

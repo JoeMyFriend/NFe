@@ -18,6 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tblendereco_estado")
 public class Estado implements Serializable {
+
     @Id
     private Integer id;
 
@@ -64,5 +65,5 @@ public class Estado implements Serializable {
     public String toString() {
         return getSigla(); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

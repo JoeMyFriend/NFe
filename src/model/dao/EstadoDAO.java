@@ -14,17 +14,17 @@ import static nfe.NFe.emBs;
  * @author Joe
  */
 public class EstadoDAO {
-    
-    public List<Estado> findAll(){
+
+    public List<Estado> findAll() {
         List<Estado> estados = null;
-        
+
         try {
             estados = emBs.createQuery("from Estado e").getResultList();
         } catch (Exception e) {
             System.err.println(e);
         }
-        
+
         return estados;
     }
-    
+
 }

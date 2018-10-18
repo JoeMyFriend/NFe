@@ -13,17 +13,15 @@ import static nfe.NFe.em;
  * @author Joe
  */
 public class EmitenteDAO {
-    
+
     // Joe - Utilizei a classe NFe para centralizar o EntityManager
     //EntityManager em = new ConnectionFactory().getConnection();
-    
-    public Emitente save(Emitente emitente){
+    public Emitente save(Emitente emitente) {
         try {
             em.getTransaction().begin();
-            if(emitente.getId() == null){
+            if (emitente.getId() == null) {
                 em.persist(emitente);
-            }
-            else{
+            } else {
                 em.merge(emitente);
             }
             em.getTransaction().commit();

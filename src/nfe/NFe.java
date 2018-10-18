@@ -14,16 +14,16 @@ import view.MainView;
  * @author User
  */
 public class NFe {
+
     public static EntityManager em;
     public static EntityManager emBs;
     public final static MainView MAIN_VIEW = new MainView();
-    
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         em = new ConnectionFactory().getConnection();
         emBs = new ConnectionFactory().getConnectionBootstrap();
-        
+
         MAIN_VIEW.setVisible(true);
     }
-    
-    
+
 }

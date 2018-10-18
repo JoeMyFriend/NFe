@@ -20,16 +20,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tblendereco_cidade")
 public class Cidade implements Serializable {
+
     @Id
     private Integer id;
-    
+
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private Estado estado;
-    
+
     @Column(name = "cidade")
     private String nome;
-    
+
     @Column(name = "codigo_ibge")
     private Integer codigoIbge;
 
@@ -64,7 +65,7 @@ public class Cidade implements Serializable {
     public void setCodigoIbge(Integer codigoIbge) {
         this.codigoIbge = codigoIbge;
     }
-    
+
     public String getCodigoIbgeCompleto() {
         return getEstado().getCodigoIbge() + String.format("%05d", getCodigoIbge());
     }
@@ -73,7 +74,5 @@ public class Cidade implements Serializable {
     public String toString() {
         return getNome(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
 }

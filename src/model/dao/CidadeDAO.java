@@ -23,8 +23,8 @@ import static nfe.NFe.emBs;
  * @author User
  */
 public class CidadeDAO {
-    
-    public List<Cidade> findAll(){
+
+    public List<Cidade> findAll() {
         List<Cidade> cidades = null;
         try {
             cidades = emBs.createQuery("from Cidade c").getResultList();
@@ -33,7 +33,8 @@ public class CidadeDAO {
         }
         return cidades;
     }
-        public Cidade findByCodigoIbge(String codigoIbge) {
+
+    public Cidade findByCodigoIbge(String codigoIbge) {
         Cidade cidade = null;
         try {
             Integer codigoCidade = Integer.valueOf(codigoIbge.substring(2));
