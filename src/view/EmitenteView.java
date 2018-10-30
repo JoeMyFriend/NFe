@@ -58,6 +58,7 @@ public class EmitenteView extends javax.swing.JInternalFrame {
         
         emitente = new Emitente();
         emitente.setNomeFantasia(nome);
+        emitente.setRazaoSocial(nome);
         emitente.setCNPJ(CNPJ);
         emitente.setInscricaoEstadual(IE);
         emitente.setLogradouro(logradouro);
