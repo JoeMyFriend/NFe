@@ -5,6 +5,8 @@
  */
 package model.dao;
 
+import java.util.List;
+import javax.persistence.Query;
 import model.bean.Emitente;
 import static nfe.NFe.em;
 
@@ -31,5 +33,17 @@ public class EmitenteDAO {
             //em.close();
         }
         return emitente;
+    }
+
+    public List<Emitente> findAll() {
+        List<Emitente> emitentes = null;
+
+        try {
+            emitentes = em.createQuery("from Emitente e").getResultList();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        return emitentes;
     }
 }

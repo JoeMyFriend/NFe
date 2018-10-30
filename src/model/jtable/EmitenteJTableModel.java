@@ -15,6 +15,7 @@ import model.bean.Emitente;
  * @author Joe
  */
 public class EmitenteJTableModel extends AbstractTableModel {
+
     private List<Emitente> dados = new ArrayList<>();
     private String[] colunas = {"CNPJ", "Inscrição Estadual", "Razão Social"};
 
@@ -23,8 +24,6 @@ public class EmitenteJTableModel extends AbstractTableModel {
         return colunas[column];
     }
 
-    
-    
     @Override
     public int getRowCount() {
         return dados.size();
@@ -38,8 +37,8 @@ public class EmitenteJTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Emitente emitente = dados.get(rowIndex);
-        
-        switch (columnIndex){
+
+        switch (columnIndex) {
             case 0:
                 return emitente.getCNPJ();
             case 1:
@@ -47,8 +46,20 @@ public class EmitenteJTableModel extends AbstractTableModel {
             case 2:
                 return emitente.getRazaoSocial();
         }
-        
+
         return null;
     }
-    
+
+    public void addList(List<Emitente> emitentes) {
+        int oldCount = getRowCount();
+
+        dados.addAll(emitentes);
+
+        fireTableRowsInserted(oldCount, getRowCount() - 1);
+    }
+
+    public void clear() {
+        dados.clear();
+        fireTableDataChanged();
+    }
 }
