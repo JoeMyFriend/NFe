@@ -6,9 +6,12 @@
 package view;
 
 import java.beans.PropertyVetoException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import model.bean.Emitente;
+import model.dao.EmitenteDAO;
 import model.jtable.EmitenteJTableModel;
 
 /**
@@ -17,16 +20,25 @@ import model.jtable.EmitenteJTableModel;
  */
 public class MainView extends javax.swing.JFrame {
 
+    EmitenteDAO emitenteDAO = new EmitenteDAO();
+    List<Emitente> emitentes;
+    EmitenteJTableModel tableModel = new EmitenteJTableModel();
+
     /**
      * Creates new form MainView
      */
-    
-    EmitenteJTableModel tableModel = new EmitenteJTableModel();
-    
     public MainView() {
         initComponents();
-        
+
         jTEmitente.setModel(tableModel);
+        loadTable();
+    }
+
+    private void loadTable() {
+        emitentes = emitenteDAO.findAll();
+        tableModel.clear();
+        tableModel.addList(emitentes);
+        
     }
 
     /**
@@ -206,11 +218,11 @@ public class MainView extends javax.swing.JFrame {
 
     private void btnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirActionPerformed
         // TODO add your handling code here:
-       EmitenteView emitenteView = new EmitenteView();
-       jDesktopPane1.add(emitenteView);
-       emitenteView.setVisible(true);
-       emitenteView.setBorder(null);
-       ((BasicInternalFrameUI) emitenteView.getUI()).setNorthPane(null);
+        EmitenteView emitenteView = new EmitenteView();
+        jDesktopPane1.add(emitenteView);
+        emitenteView.setVisible(true);
+        emitenteView.setBorder(null);
+        ((BasicInternalFrameUI) emitenteView.getUI()).setNorthPane(null);
         try {
             emitenteView.setMaximum(true);
         } catch (PropertyVetoException ex) {
