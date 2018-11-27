@@ -38,18 +38,18 @@ public class EnvioNfeSincronoTesteMontaXml {
             TNFe nfe = new TNFe();
             TNFe.InfNFe infNFe = new InfNFe();
 
-            infNFe.setId("NFe35181104615918000104550010000004111000103346");
+            infNFe.setId("NFe35112604615918000104550010000009021000103318");
             infNFe.setVersao("4.00");
 
             // Dados Nfe
             Ide ide = new Ide();
             ide.setCUF("35");
-            ide.setCNF("09923465");
+            ide.setCNF("00010331");
             ide.setNatOp("Revenda de Mercadorias");
             ide.setMod("55");
             ide.setSerie("1");
             ide.setNNF("1");
-            ide.setDhEmi("2018-11-16T09:40:00-03:00");
+            ide.setDhEmi("2018-11-26T16:53:00-02:00");
             ide.setTpNF("1");
             ide.setIdDest("1");
             ide.setCMunFG("3550308");
@@ -66,7 +66,7 @@ public class EnvioNfeSincronoTesteMontaXml {
 
             //Emitente
             Emit emit = new Emit();
-            emit.setCNPJ("00822602000124");
+            emit.setCNPJ("04615918000104");
             emit.setXNome("Plotag Sistemas e Suprimentos Ltda");
             emit.setXFant("Plotag Sistemas e Suprimentos Ltda");
             TEnderEmi enderEmit = new TEnderEmi();
@@ -103,7 +103,7 @@ public class EnvioNfeSincronoTesteMontaXml {
             enderDest.setFone("33933501");
             dest.setEnderDest(enderDest);
             dest.setEmail("gui_calabria@yahoo.com.br");
-            dest.setIndIEDest("1");
+            dest.setIndIEDest("9");
             infNFe.setDest(dest);
             
             Det det = new Det();
@@ -216,7 +216,7 @@ public class EnvioNfeSincronoTesteMontaXml {
             TEnviNFe enviNFe = new TEnviNFe();
             enviNFe.setVersao("4.00");
             enviNFe.setIdLote("1");
-            enviNFe.setIndSinc("1");
+            enviNFe.setIndSinc("0");
             enviNFe.getNFe().add(nfe);
 
             // Monta e Assina o XML
@@ -241,7 +241,8 @@ public class EnvioNfeSincronoTesteMontaXml {
             System.out.println("Xml Final :" + XmlUtil.criaNfeProc(enviNFe, retorno.getProtNFe()));
 
         } catch (NfeException | JAXBException | CertificadoException e) {
-            System.out.println("Erro:" + e.getMessage());
+            System.out.println("Erro Bugou tudo:" + e.getMessage());
+            e.printStackTrace();
         }
 
     }
