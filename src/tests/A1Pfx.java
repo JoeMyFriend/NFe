@@ -22,7 +22,7 @@ public class A1Pfx {
 
             //PARA REGISTRAR O CERTIFICADO NA SESSAO, FAÇA SOMENTE EM PROJETOS EXTERNO
             //JAVA NFE, CTE E OUTRAS APIS MINHAS JA CONTEM ESTA INICIALIZAÇÃO
-            CertificadoService.inicializaCertificado(certificado, new FileInputStream(new File("caminhoCacert")));
+            CertificadoService.inicializaCertificado(certificado, new FileInputStream(new File("C:\\Users\\User\\Documents\\NetBeans Projects\\Java_NFe-master\\src\\main\\resources\\Cacert")));
 
         }catch (CertificadoException | FileNotFoundException e){
             System.err.println(e.getMessage());

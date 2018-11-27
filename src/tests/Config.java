@@ -22,6 +22,6 @@ public class Config {
 	Certificado certificado = certifidoA1Pfx();
 		
 	return ConfiguracoesIniciaisNfe.iniciaConfiguracoes(Estados.SP , ConstantesUtil.AMBIENTE.HOMOLOGACAO,
-			certificado, "C:\\Users\\User\\Documents\\NetBeans Projects\\DependenciasDaNFeSamuelGit\\schemas");
+			certificado, "C:\\Users\\User\\Documents\\NetBeans Projects\\DependenciasDaNFeSamuelGit\\PL_009_v4_2016_002_v160b");
     }
 }
