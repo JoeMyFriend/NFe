@@ -4,6 +4,7 @@ import br.com.samuelweb.certificado.exception.CertificadoException;
 import br.com.samuelweb.nfe.Nfe;
 import br.com.samuelweb.nfe.dom.Enum.StatusEnum;
 import br.com.samuelweb.nfe.exception.NfeException;
+import br.com.samuelweb.nfe.util.Chave;
 import br.com.samuelweb.nfe.util.ConstantesUtil;
 import br.com.samuelweb.nfe.util.XmlUtil;
 import br.inf.portalfiscal.nfe.schema_4.enviNFe.TEnderEmi;
@@ -33,24 +34,36 @@ public class EnvioNfeAssincronoTeste {
             
             TNFe nfe = new TNFe();
             TNFe.InfNFe infNFe = new TNFe.InfNFe();
-
-            infNFe.setId("NFe35181104615918000104550010000004111000103311");
+            
+            String cUF = "35";
+            String cnpj = "04615918000104";
+            String mod = "55";
+            String serie = "1";
+            String nnf = "410";
+            String tpEmis = "1";
+            String cnf = "00010341";
+            
+            Chave chave = new Chave(cUF, cnpj, mod, serie, nnf, tpEmis, cnf);
+            
+            System.out.println(chave.getChNFe());
+            //System.exit(0);
+            infNFe.setId(chave.getChNFe());
             infNFe.setVersao("4.00");
 
             // Dados Nfe
             TNFe.InfNFe.Ide ide = new TNFe.InfNFe.Ide();
-            ide.setCUF("35");
-            ide.setCNF("00010331");
+            ide.setCUF(cUF);
+            ide.setCNF(cnf);
             ide.setNatOp("Revenda de Mercadorias");
-            ide.setMod("55");
-            ide.setSerie("1");
-            ide.setNNF("411");
+            ide.setMod(mod);
+            ide.setSerie(serie);
+            ide.setNNF(nnf);
             ide.setDhEmi("2018-11-27T09:33:00-02:00");
             ide.setTpNF("1");
             ide.setIdDest("1");
             ide.setCMunFG("3550308");
             ide.setTpImp("1");
-            ide.setTpEmis("1");
+            ide.setTpEmis(tpEmis);
             ide.setCDV("1");
             ide.setTpAmb("2");
             ide.setFinNFe("1");
@@ -62,7 +75,7 @@ public class EnvioNfeAssincronoTeste {
 
             //Emitente
             TNFe.InfNFe.Emit emit = new TNFe.InfNFe.Emit();
-            emit.setCNPJ("04615918000104");
+            emit.setCNPJ(cnpj);
             emit.setXNome("Plotag Sistemas e Suprimentos Ltda");
             emit.setXFant("Plotag Sistemas e Suprimentos Ltda");
             TEnderEmi enderEmit = new TEnderEmi();
