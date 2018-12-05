@@ -35,18 +35,25 @@ public class EnvioNfeAssincronoTeste {
             TNFe nfe = new TNFe();
             TNFe.InfNFe infNFe = new TNFe.InfNFe();
             
+            //Variaveis que compõe a chave NFe e o XML
             String cUF = "35";
             String cnpj = "04615918000104";
             String mod = "55";
             String serie = "1";
-            String nnf = "410";
+            String nnf = "415";
             String tpEmis = "1";
             String cnf = "00010341";
-            
+
             Chave chave = new Chave(cUF, cnpj, mod, serie, nnf, tpEmis, cnf);
             
+            //Este Trecho pega o digito verificador da chave gerada para ser usada no XML
+            char caractere = chave.getChNFe().charAt(chave.getChNFe().length() - 1);
+            String CDV = Character.toString(caractere);
+            
             System.out.println(chave.getChNFe());
+            System.out.println(CDV);
             //System.exit(0);
+            
             infNFe.setId(chave.getChNFe());
             infNFe.setVersao("4.00");
 
@@ -58,13 +65,13 @@ public class EnvioNfeAssincronoTeste {
             ide.setMod(mod);
             ide.setSerie(serie);
             ide.setNNF(nnf);
-            ide.setDhEmi("2018-11-27T09:33:00-02:00");
+            ide.setDhEmi("2018-12-05T09:33:00-02:00");
             ide.setTpNF("1");
             ide.setIdDest("1");
             ide.setCMunFG("3550308");
             ide.setTpImp("1");
             ide.setTpEmis(tpEmis);
-            ide.setCDV("1");
+            ide.setCDV(CDV);
             ide.setTpAmb("2");
             ide.setFinNFe("1");
             ide.setIndFinal("1");
@@ -92,12 +99,12 @@ public class EnvioNfeAssincronoTeste {
             enderEmit.setFone("1123587604");
             emit.setEnderEmit(enderEmit);
             emit.setIE("374053100113");
-            emit.setCRT("3");
+            emit.setCRT("1");
             infNFe.setEmit(emit);
 
             //Destinatario
             TNFe.InfNFe.Dest dest = new TNFe.InfNFe.Dest();
-            dest.setCNPJ("99999999000191");
+            dest.setCNPJ("07133133000185");
             dest.setXNome("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
             TEndereco enderDest = new TEndereco();
             enderDest.setXLgr("Rua Jaragua");
@@ -112,7 +119,8 @@ public class EnvioNfeAssincronoTeste {
             enderDest.setFone("33933501");
             dest.setEnderDest(enderDest);
             dest.setEmail("gui_calabria@yahoo.com.br");
-            dest.setIndIEDest("2");
+            dest.setIndIEDest("1");
+            dest.setIE("374117970113");
             infNFe.setDest(dest);
             
             TNFe.InfNFe.Det det = new TNFe.InfNFe.Det();
@@ -141,13 +149,10 @@ public class EnvioNfeAssincronoTeste {
             //Impostos
             TNFe.InfNFe.Det.Imposto imposto = new TNFe.InfNFe.Det.Imposto();
             TNFe.InfNFe.Det.Imposto.ICMS icms = new TNFe.InfNFe.Det.Imposto.ICMS();
-            TNFe.InfNFe.Det.Imposto.ICMS.ICMS60 icms60 = new TNFe.InfNFe.Det.Imposto.ICMS.ICMS60();
-            icms60.setOrig("0");
-            icms60.setCST("60");
-            icms60.setVBCSTRet("0");
-            icms60.setPST("0.00");
-            icms60.setVICMSSTRet("0");
-            icms.setICMS60(icms60);
+            TNFe.InfNFe.Det.Imposto.ICMS.ICMSSN102 icms102 = new TNFe.InfNFe.Det.Imposto.ICMS.ICMSSN102();
+            icms102.setOrig("0");
+            icms102.setCSOSN("102");
+            icms.setICMSSN102(icms102);
 
             TNFe.InfNFe.Det.Imposto.PIS pis = new TNFe.InfNFe.Det.Imposto.PIS();
             TNFe.InfNFe.Det.Imposto.PIS.PISAliq pisAliq = new TNFe.InfNFe.Det.Imposto.PIS.PISAliq();
